@@ -1,51 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog de Tecnologia - IA na Educação</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Utilização da IA na Educação</title>
 
-    <!-- Controles de Acessibilidade -->
-    <div class="controles-acessibilidade">
-        <button id="aumentar">Aumentar texto A+</button>
-        <button id="diminuir">Diminuir texto A-</button>
-    </div>
+    <style>
+      /* Importação da fonte OpenDyslexic via CDN */
+      @font-face {
+        font-family: 'OpenDyslexic';
+        src: url('https://cdn.jsdelivr.net/npm/opendyslexic@1.0.3/alt-style/OpenDyslexic-Regular.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+      }
+daqui
+      /* Estilo base */
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        line-height: 1.6;
+        padding: 20px;
+      }
 
-    <!-- Conteúdo Principal Otimizado -->
-    <main>
-        <article>
-            <header>
-                <h1>O Impacto da Inteligência Artificial na Educação Moderna</h1>
-                <p class="subtitulo">Como as novas tecnologias estão transformando a forma como aprendemos e ensinamos.</p>
-            </header>
+      /* Classe ativada para aplicar a fonte para dislexia */
+      body.fonte-dislexia {
+        font-family: 'OpenDyslexic', Arial, sans-serif !important;
+        letter-spacing: 0.3px;
+        word-spacing: 1px;
+      }
 
-            <section>
-                <h2>A Revolução nas Salas de Aula</h2>
-                <p>A inteligência artificial deixou de ser uma promessa futurista e passou a ser uma ferramenta ativa no ambiente escolar. Ela atua diretamente no suporte pedagógico, ajudando a criar trilhas de aprendizado mais dinâmicas.</p>
-                <p>Com o uso de algoritmos avançados, os sistemas conseguem identificar as maiores dificuldades de cada aluno, permitindo intervenções mais rápidas e precisas por parte dos educadores.</p>
-            </section>
+      article {
+        max-width: 750px;
+        margin: auto;
+      }
 
-            <section>
-                <h2>Principais Aplicações Práticas</h2>
-                <p>A IA pode ser implementada de diversas formas no cotidiano educacional, trazendo benefícios para todas as pontas do processo:</p>
-                <ul>
-                    <li><strong>Personalização da aprendizagem:</strong> Adaptação do ritmo e do conteúdo conforme a necessidade do estudante.</li>
-                    <li><strong>Correção automatizada:</strong> Agilidade na avaliação de atividades e testes de múltipla escolha.</li>
-                    <li><strong>Apoio aos professores:</strong> Redução da carga de trabalho administrativo, liberando tempo para o planejamento de aulas.</li>
-                    <li><strong>Materiais sob medida:</strong> Geração de apostilas, resumos e questionários personalizados de forma instantânea.</li>
-                </ul>
-            </section>
+      p {
+        margin-bottom: 20px;
+      }
 
-            <section class="resumo-box">
-                <h2>Resumo do Artigo</h2>
-                <p>A Inteligência Artificial atua como uma forte aliada de estudantes e professores. Quando bem planejada, ela otimiza o tempo de ensino, personaliza o aprendizado e resolve problemas históricos de defasagem escolar, sem substituir o papel fundamental do educador.</p>
-            </section>
-        </article>
-    </main>
+      /* Barra de controles de acessibilidade */
+      .controles-acessibilidade {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
 
-    <script src="script.js"></script>
-</body>
+      .controles-acessibilidade button {
+        padding: 8px 14px;
+        font-size: 14px;
+        cursor: pointer;
+        border: 1px solid #0056b3;
+        background-color: #0056b3;
+        color: #ffffff;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+      }
+
+      .controles-acessibilidade button:hover {
+        background-color: #003d82;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <!-- Painel com os botões de acessibilidade -->
+      <div class="controles-acessibilidade">
+        <button id="aumentar">Aumentar texto</button>
+        <button id="diminuir">Diminuir texto</button>
+        <button id="alternar-fonte">Fonte para Dislexia: OFF</button>
+      </div>
+
+      <h1>Inteligência Artificial na Educação</h1>
+
+      <p>
+        A inteligência artificial está sendo utilizada em diferentes áreas da
+        educação.
+      </p>
+
+      <h2>Principais aplicações</h2>
+
+      <ul>
+        <li>Personalização da aprendizagem;</li>
+        <li>Correção de atividades;</li>
+        <li>Apoio aos professores;</li>
+        <li>Criação de materiais educacionais.</li>
+      </ul>
+
+      <h2>Resumo</h2>
+
+      <p>
+        A IA pode apoiar estudantes e professores, mas seu uso precisa ser
+        planejado.
+      </p>
+    </article>
+
+    <!-- Script de acessibilidade -->
+    <script>
+      let tamanho = 18;
+
+      // Aumentar tamanho da fonte
+      document.querySelector("#aumentar").onclick = function () {
+        tamanho += 2;
+        document.body.style.fontSize = tamanho + "px";
+      };
+
+      // Diminuir tamanho da fonte
+      document.querySelector("#diminuir").onclick = function () {
+        if (tamanho > 10) { // Previne que o texto fique menor que 10px
+          tamanho -= 2;
+          document.body.style.fontSize = tamanho + "px";
+        }
+      };
+
+      // Alternar para a fonte OpenDyslexic
+      const btnFonte = document.querySelector("#alternar-fonte");
+      btnFonte.onclick = function () {
+        document.body.classList.toggle("fonte-dislexia");
+        const ativado = document.body.classList.contains("fonte-dislexia");
+        btnFonte.textContent = ativado ? "Fonte para Dislexia: ON" : "Fonte para Dislexia: OFF";
+      };
+    </script>
+  </body>
 </html>
